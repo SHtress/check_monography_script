@@ -28,6 +28,7 @@ KEY_ELEMENTS = [KEY_CONCEPT, KEY_RELATION,
 BEGIN_LIST = "\\begin{scnrelfromlist}"
 END_LIST = "\\end{scnrelfromlist}"
 CHAPTER = "\\chapter"
+SECTION = "\\section"
 
 
 def check_terms(file_path: str, glossary_path: str) -> list:
@@ -59,6 +60,8 @@ def check_terms(file_path: str, glossary_path: str) -> list:
                 key_list_end_line = line_number + 1
                 in_list = False
                 key_lists.append((key_list_begin_line, key_list_end_line))
+            if SECTION in line:
+                break
 
     key_elements_to_check = []
 
@@ -118,6 +121,8 @@ def check_biblio(file_path: str, bibliography_path: str) -> list:
                 in_list = False
                 biblio_lists.append(
                     (biblio_list_begin_line, biblio_list_end_line))
+            if SECTION in line:
+                break
 
     biblio_links_to_check = []
 
@@ -186,6 +191,8 @@ def get_authors(file_path: str) -> list:
                 in_list = False
                 authors_lists.append(
                     (authors_list_begin_line, authors_list_end_line))
+            if SECTION in line:
+                break
 
     authors_to_contact = []
 
