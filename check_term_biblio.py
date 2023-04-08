@@ -5,6 +5,7 @@
 import argparse
 import os
 import re
+from bib import parse_from_file
 
 from termcolor import colored
 
@@ -149,7 +150,9 @@ def check_biblio(file_path: str, bibliography_path: str) -> list:
 
     return biblio_links_to_fix
 
-def get_chapter_name(file_path:str) -> str:
+
+def get_chapter_name(file_path: str) -> str:
+    # TODO: Add docstring
     chapter_name = "No chapter name"
 
     with open(file_path, 'r', encoding="utf-8") as file:
@@ -159,7 +162,6 @@ def get_chapter_name(file_path:str) -> str:
             chapter_name = result.group(1)
 
     return chapter_name
-                
 
 
 def get_authors(file_path: str) -> list:
@@ -243,10 +245,16 @@ def main(args: dict):
         for term in terms_to_fix:
             print("- " + term)
 
+    biblio_links_to_tex = parse_from_file(file_path)
+
     if biblio_links_to_fix:
         print("Need to add biblio links to bibliography: ")
-        for biblio_link in biblio_links_to_fix:
-            print("- " + biblio_link)
+        with open("bibliography.tex", 'w', encoding="utf-8") as file:
+            for biblio_link in biblio_links_to_fix:
+                print("- " + biblio_link)
+                for tex_link in biblio_links_to_tex:
+                    if biblio_link in tex_link:
+                        file.write("\t" + tex_link + '\n')
 
     if (not final_result) and authors_to_contact:
         print("Please contact these authors to apply fixes: ")
