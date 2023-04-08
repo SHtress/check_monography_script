@@ -57,3 +57,16 @@ If check didn't pass in log you will see:
 - what terms should be added to glossary;
 - what biblio links should be added to bibliography;
 - who to contact about applying fixes.
+
+Also it creates 3 files:
+- `biblio_list_for_chapter.tex` - list of all biblio links for chapter head.
+- `bibliography_to_add.tex` - list of all biblio links with refs for chapter that need to be added in bibliography.tex.
+- `biblio_list_for_bibliography.tex` - list of all biblio links with refs for chapter. You can put it's content in bibliography.tex.
+  
+  **WARNING:** Refs are checked only in *one* chapter, *not* in whole monography.
+
+## Authors
+- [SHtress](https://github.com/shtress)
+- [Vikort](https://github.com/vikort)
+
+

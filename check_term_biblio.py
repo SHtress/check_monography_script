@@ -249,7 +249,7 @@ def main(args: dict):
 
     if biblio_links_to_fix:
         print("Need to add biblio links to bibliography: ")
-        with open("bibliography.tex", 'w', encoding="utf-8") as file:
+        with open("bibliography_to_add.tex", 'w', encoding="utf-8") as file:
             for biblio_link in biblio_links_to_fix:
                 print("- " + biblio_link)
                 for tex_link in biblio_links_to_tex:
