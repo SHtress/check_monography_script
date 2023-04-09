@@ -1,4 +1,4 @@
-# Check script for monography
+# Check scripts for monography
 
 Python script for checking glossary and bibliography for [monography](https://github.com/ostis-ai/monography2022).
 
@@ -31,14 +31,16 @@ From your command line:
 ## Output example
 
 Check passed:
-```
+
+```sh
 Check /home/shtr3s/monography2022/author/part2/chapter_lang.tex
 ----------
 Checks result: Passed
 ```
 
 Check didn't pass:
-```
+
+```sh
 Check /home/shtr3s/monography2022/author/part2/chapter_top_ontologies.tex
 ----------
 Checks result: Error
@@ -54,11 +56,13 @@ Please contact these authors to apply fixes:
 ```
 
 If check didn't pass in log you will see:
+
 - what terms should be added to glossary;
 - what biblio links should be added to bibliography;
 - who to contact about applying fixes.
 
 Also it creates 3 files:
+
 - `biblio_list_for_chapter.tex` - list of all biblio links for chapter head.
 - `bibliography_to_add.tex` - list of all biblio links with refs for chapter that need to be added in bibliography.tex.
 - `biblio_list_for_bibliography.tex` - list of all biblio links with refs for chapter. You can put it's content in bibliography.tex.
@@ -66,7 +70,6 @@ Also it creates 3 files:
   **WARNING:** Refs are checked only in *one* chapter, *not* in whole monography.
 
 ## Authors
+
 - [SHtress](https://github.com/shtress)
 - [Vikort](https://github.com/vikort)
-
-
